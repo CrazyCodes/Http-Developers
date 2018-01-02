@@ -20,12 +20,7 @@
 /java/*
 !java/readme.md
 
-!/config
-/config/*
-!config/git
-!config/nginx
-!config/nginx/config
-!config/nginx/config/demo.com.conf
+/config/nginx/config
 
 hosts
 /.DS_Store
