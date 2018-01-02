@@ -1,5 +1,6 @@
 /.idea
 /.env
+!/app/readme.md
 /app
 /c++
 /java
