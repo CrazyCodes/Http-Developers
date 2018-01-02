@@ -1,6 +1,5 @@
 /.idea
 /.env
-!/app/readme.md
 /app
 /c++
 /java
@@ -12,3 +11,4 @@
 /.DS_Store
 /services/mysql/data/*
 
+!/app/readme.md
