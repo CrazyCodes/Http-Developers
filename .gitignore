@@ -8,7 +8,9 @@
 /learn
 /notes
 /ssh
-/web
+!/web
+/web/*
+!web/readme.md
 hosts
 /.DS_Store
 /services/mysql/data/*
