@@ -16,6 +16,10 @@
 /ssh/*
 !ssh/readme.md
 
+!/java
+/java/*
+!java/readme.md
+
 hosts
 /.DS_Store
 /services/mysql/data/*
