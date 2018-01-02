@@ -12,3 +12,4 @@
 /services/mysql/data/*
 
 !/app/readme.md
+!/web/readme.md
