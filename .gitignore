@@ -2,7 +2,7 @@
 /.env
 !/app
 /app/*
-!app/.gitignore
+!app/readme.md
 /c++
 /java
 /learn
@@ -11,6 +11,11 @@
 !/web
 /web/*
 !web/readme.md
+
+!/ssh
+/ssh/*
+!ssh/readme.md
+
 hosts
 /.DS_Store
 /services/mysql/data/*

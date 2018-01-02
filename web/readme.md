@@ -1,1 +1,1 @@
-git checkout master
+web 目录
