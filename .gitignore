@@ -1,7 +1,7 @@
 /.idea
 /.env
-!/app/readme.md
 /app
+!app/.gitignore
 /c++
 /java
 /learn
