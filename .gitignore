@@ -10,3 +10,5 @@
 /hosts
 /.DS_Store
 /services/mysql/data/*
+
+!/app/readme.md
