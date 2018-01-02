@@ -1,0 +1,12 @@
+/.idea
+/.env
+/app
+/c++
+/java
+/learn
+/notes
+/ssh
+/web
+/hosts
+/.DS_Store
+/services/mysql/data/*

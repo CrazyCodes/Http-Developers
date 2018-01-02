@@ -1,0 +1,75 @@
+version: '2'
+
+services:
+
+
+      ##-----------------------------------------------
+      # mariadb
+      ##-----------------------------------------------
+      db:
+        container_name: 'local_db'
+        build: ./services/mysql
+        environment:
+          MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+        ports:
+          - "3306:3306"
+        volumes:
+          - ${MYSQL_DATA_PATH}:/var/lib/mysql
+
+      ##-----------------------------------------------
+      # php
+      ##-----------------------------------------------
+      php:
+        container_name: 'local_php'
+        build: ./services/php
+        volumes:
+          - ${APPLICATION}:/mnt/app
+        ports:
+          - "9000:9000"
+
+
+
+      ##-----------------------------------------------
+      # nginx
+      ##-----------------------------------------------
+      web:
+        container_name: 'local_nginx'
+        image: 'nginx:latest'
+        ports:
+          - "80:80"
+        depends_on:
+          - php
+        volumes_from:
+          - php
+        volumes:
+          - ${NGINX_VOLUME_CONFIG_PATH}:/etc/nginx/conf.d
+
+
+      tomcat:
+      #   container_name: 'local_tomcat'
+        image: 'tomcat:latest'
+        volumes:
+          - ${JAVA_APPLICATION}:/usr/local/tomcat/webapps/web
+        ports:
+          - "8888:8080"
+        tty: true
+
+
+      ##-----------------------------------------------
+      # node
+      ##-----------------------------------------------
+      node:
+        container_name: 'local_node'
+        build: ./services/node
+        ports:
+          - "3000:3000"
+          - "3001:3001"
+          - "3002:3002"
+          - "3003:3003"
+          - "3004:3004"
+        volumes:
+          - ${NODE_APPLICATION}:/var/www
+        tty: true
+
+      # redis:
+      #   container_name: 'local_redis'
