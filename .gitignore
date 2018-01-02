@@ -7,7 +7,6 @@
 /notes
 /ssh
 /web
-!app/readme.md
-!web/readme.md
+hosts
 /.DS_Store
 /services/mysql/data/*
