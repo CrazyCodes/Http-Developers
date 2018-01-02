@@ -1,6 +1,7 @@
 /.idea
 /.env
-/app
+!/app
+/app/*
 !app/.gitignore
 /c++
 /java
