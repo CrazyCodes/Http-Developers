@@ -20,6 +20,13 @@
 /java/*
 !java/readme.md
 
+!/config
+/config/*
+!config/git
+!config/nginx
+!config/nginx/config
+!config/nginx/config/demo.com.conf
+
 hosts
 /.DS_Store
 /services/mysql/data/*
