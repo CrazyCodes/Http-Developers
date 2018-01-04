@@ -8,9 +8,9 @@
 
 
 # 容器名称列表
-MYSQL -> db -> 别名:dev_db
-PHP -> php -> 别名:dev_php
-NGINX -> web -> 别名:dev_nginx
+* MYSQL -> db -> 别名:dev_db
+* PHP -> php -> 别名:dev_php
+* NGINX -> web -> 别名:dev_nginx
 
 # start.sh
-> 这是写了一个可以快速操作docker环境的脚本，基本使用如下
+> 这是写了一个可以快速操作docker环境的脚本,基本使用如下
