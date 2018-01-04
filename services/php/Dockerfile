@@ -5,6 +5,9 @@ WORKDIR /mnt/app
 
 ADD site.ini /usr/local/etc/php/conf.d
 
+COPY php-fpm.conf /usr/local/etc/php-fpm.conf
+COPY php-fpm.conf.default /usr/local/etc/php-fpm.conf.default
+
 # 常用工具
 RUN apt-get update && apt-get install -y git curl wget cron vim locales libfreetype6-dev mariadb-client \
   && docker-php-ext-install mysqli pdo_mysql
