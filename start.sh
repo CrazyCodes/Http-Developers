@@ -40,9 +40,9 @@ case $1 in
 		$compose $2
 	;;
 	'nodes')
-		docker exec -it http_node_1 /bin/sh -c "cd /var/www/${2} && ${3}"
+		docker exec -it local_node /bin/sh -c "cd /var/www/${2} && ${3}"
 	;;
 	'php')
-		docker exec -it http_php_1 /bin/sh -c "cd /mnt/app/${2} && ${3}"
+		docker exec -it local_php /bin/sh -c "cd /mnt/app/${2} && ${3}"
 	;;
 esac

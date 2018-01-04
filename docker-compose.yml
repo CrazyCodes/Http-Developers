@@ -7,7 +7,7 @@ services:
       # mariadb
       ##-----------------------------------------------
       db:
-        container_name: 'local_db'
+        container_name: 'dev_db'
         build: ./services/mysql
         environment:
           MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
@@ -20,7 +20,7 @@ services:
       # php
       ##-----------------------------------------------
       php:
-        container_name: 'local_php'
+        container_name: 'dev_php'
         build: ./services/php
         volumes:
           - ${APPLICATION}:/mnt/app
@@ -33,8 +33,8 @@ services:
       # nginx
       ##-----------------------------------------------
       web:
-        container_name: 'local_nginx'
-        image: 'nginx:latest'
+        container_name: 'dev_nginx'
+        build: ./services/nginx
         ports:
           - "80:80"
         depends_on:
@@ -43,33 +43,35 @@ services:
           - php
         volumes:
           - ${NGINX_VOLUME_CONFIG_PATH}:/etc/nginx/conf.d
+       
+        # privileged: true
 
 
-      tomcat:
+      # tomcat:
       #   container_name: 'local_tomcat'
-        image: 'tomcat:latest'
-        volumes:
-          - ${JAVA_APPLICATION}:/usr/local/tomcat/webapps/web
-        ports:
-          - "8888:8080"
-        tty: true
+      #   image: 'tomcat:latest'
+      #   volumes:
+      #     - ${JAVA_APPLICATION}:/usr/local/tomcat/webapps/web
+      #   ports:
+      #     - "8888:8080"
+      #   tty: true
 
 
       ##-----------------------------------------------
       # node
       ##-----------------------------------------------
-      node:
-        container_name: 'local_node'
-        build: ./services/node
-        ports:
-          - "3000:3000"
-          - "3001:3001"
-          - "3002:3002"
-          - "3003:3003"
-          - "3004:3004"
-        volumes:
-          - ${NODE_APPLICATION}:/var/www
-        tty: true
+      # node:
+      #   container_name: 'local_node'
+      #   build: ./services/node
+      #   ports:
+      #     - "3000:3000"
+      #     - "3001:3001"
+      #     - "3002:3002"
+      #     - "3003:3003"
+      #     - "3004:3004"
+      #   volumes:
+      #     - ${NODE_APPLICATION}:/var/www
+      #   tty: true
 
       # redis:
       #   container_name: 'local_redis'
