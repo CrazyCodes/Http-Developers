@@ -20,7 +20,9 @@
 /java/*
 !java/readme.md
 
-/config/nginx/config
+!/services/nginx/config
+/services/nginx/config/*
+!services/nginx/config/readme.md
 
 hosts
 /.DS_Store
