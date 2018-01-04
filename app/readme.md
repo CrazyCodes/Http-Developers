@@ -1,1 +1,2 @@
-这是php项目目录
+# PHP项目目录
+* ENV = APPLICATION 变量来设置
