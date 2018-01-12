@@ -27,6 +27,14 @@ services:
         ports:
           - "9000:9000"
 
+      php56:
+        container_name: 'dev_php_56'
+        build: ./services/php56
+        volumes:
+          - ${APPLICATION}:/mnt/app
+        ports:
+          - "9001:9001"
+
 
 
       ##-----------------------------------------------
@@ -43,6 +51,7 @@ services:
           - php
         volumes:
           - ${NGINX_VOLUME_CONFIG_PATH}:/etc/nginx/conf.d
+        dns: 8.8.8.8
        
         # privileged: true
 

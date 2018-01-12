@@ -1,4 +1,4 @@
-FROM php:7.0.9-fpm
+FROM php:5.6-fpm
 MAINTAINER crazycodes <919342864@qq.com>
 
 WORKDIR /mnt/app
