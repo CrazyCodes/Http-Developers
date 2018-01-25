@@ -40,9 +40,21 @@ case $1 in
 		$compose $2
 	;;
 	'nodes')
-		docker exec -it local_node /bin/sh -c "cd /var/www/${2} && ${3}"
+		docker exec -it dev_node /bin/sh -c "cd /var/www/${2} && ${3}"
 	;;
 	'php')
-		docker exec -it local_php /bin/sh -c "cd /mnt/app/${2} && ${3}"
+		docker exec -it dev_php /bin/sh -c "cd /mnt/app/${2} && ${3}"
+	;;
+	'supervisor')
+		if [[ $2 == 'start' ]]; then
+			docker exec -it dev_php /bin/sh -c "supervisord -c /etc/supervisor/supervisord.conf"
+		elif [[ $2 == 'stop' ]]; then
+			docker exec -it dev_php /bin/sh -c "supervisorctl shutdown"
+		elif [[ $2 == 'restart' ]]; then
+			docker exec -it dev_php /bin/sh -c "supervisorctl shutdown"
+			docker exec -it dev_php /bin/sh -c "supervisord -c /etc/supervisor/supervisord.conf"
+		elif [[ $2 == 'reload' ]]; then
+			docker exec -it dev_php /bin/sh -c "supervisorctl reload"
+		fi
 	;;
 esac

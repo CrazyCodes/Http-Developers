@@ -18,4 +18,9 @@ RUN apt-get update \
 # 安装PHP Redis扩展
 COPY ./ext/redis-3.1.4.tgz /home/redis-3.1.4.tgz
 
+RUN apt-get -y install python-setuptools
+RUN easy_install supervisor
+
 RUN pecl install /home/redis-3.1.4.tgz && echo "extension=redis.so"  > /usr/local/etc/php/conf.d/redis.ini
+RUN pecl install swoole && echo "extension=swoole.so" > /usr/local/etc/php/conf.d/swoole.ini
+RUN pecl install yaf && echo "extension=yaf.so" > /usr/local/etc/php/conf.d/yaf.ini

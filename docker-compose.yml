@@ -24,8 +24,10 @@ services:
         build: ./services/php
         volumes:
           - ${APPLICATION}:/mnt/app
+          - ./services/supervisor:/etc/supervisor
         ports:
           - "9000:9000"
+          - "8888:8888"
 
       php56:
         container_name: 'dev_php_56'
@@ -33,7 +35,7 @@ services:
         volumes:
           - ${APPLICATION}:/mnt/app
         ports:
-          - "9001:9001"
+          - "9001:9000"
 
 
 
