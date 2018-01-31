@@ -57,6 +57,17 @@ services:
        
         # privileged: true
 
+      elasticsearch:
+        container_name: 'dev_elasticsearch'
+        image: elasticsearch
+        volumes:
+          - ./services/elasticsearch/data:/usr/share/elasticsearch/data
+          - ./services/elasticsearch/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+        ports:
+          - "9200:9200"
+          - "9300:9300"
+          
+
 
       # tomcat:
       #   container_name: 'local_tomcat'
