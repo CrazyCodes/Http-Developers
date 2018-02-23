@@ -57,6 +57,7 @@ services:
        
         # privileged: true
 
+
       elasticsearch:
         container_name: 'dev_elasticsearch'
         image: elasticsearch
@@ -66,8 +67,6 @@ services:
         ports:
           - "9200:9200"
           - "9300:9300"
-          
-
 
       # tomcat:
       #   container_name: 'local_tomcat'
