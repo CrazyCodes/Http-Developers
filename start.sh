@@ -45,6 +45,13 @@ case $1 in
 	'php')
 		docker exec -it dev_php /bin/sh -c "cd /mnt/app/${2} && ${3}"
 	;;
+	'composer')
+		if [[ $2 == 'install' ]]; then
+			docker exec -it dev_php /bin/sh -c "cd /mnt/app/${3} && composer install --ignore-platform-reqs"
+		elif [[ $2 == 'update' ]]; then
+			docker exec -it dev_php /bin/sh -c "cd /mnt/app/${3} && composer update --ignore-platform-reqs"
+		fi;
+	;;
 	'supervisor')
 		if [[ $2 == 'start' ]]; then
 			docker exec -it dev_php /bin/sh -c "supervisord -c /etc/supervisor/supervisord.conf"
