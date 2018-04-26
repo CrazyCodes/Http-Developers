@@ -38,6 +38,15 @@ services:
           - "9001:9000"
 
 
+      php71:
+        container_name: 'dev_php_71'
+        build: ./services/php71
+        volumes:
+          - ${APPLICATION}:/mnt/app
+        ports:
+          - "9002:9000"
+
+
 
       ##-----------------------------------------------
       # nginx
@@ -47,6 +56,7 @@ services:
         build: ./services/nginx
         ports:
           - "80:80"
+          - "1935:1935"
         depends_on:
           - php
         volumes_from:
